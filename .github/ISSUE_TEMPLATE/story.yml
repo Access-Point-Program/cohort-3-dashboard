@@ -1,0 +1,51 @@
+name: Definition Of Ready
+description: BReaking COde Story Template
+title: 'As a [____], [____]'
+labels: []
+assignees:
+  - '@Access-Point-Program/breaking-code'
+body:
+  - type: checkboxes
+    id: definition-of-ready
+    attributes:
+      label: Have we met are definitions of ready?
+      description: Prerequisites
+      options:
+        - label: Steps are written out
+        - label: Acceptance criteria defined
+        - label: Broken down as much as possible
+        - label: Have all dependencies
+        - label: Points agreed on by the whole team
+        - label: Check with the Scrum master that everything is there
+  - type: textarea
+    id: component
+    attributes:
+      label: Description
+      description: Which part of the application is this using?
+      placeholder: Frontend.
+    validations:
+      required: true
+  - type: textarea
+    id: Problems
+    attributes:
+      label: Problems
+      description: Are there any problems?
+      placeholder: No.
+    validations:
+      required: true
+  - type: textarea
+    id: Resources
+    attributes:
+      label: Resources
+      description: Are there any resources?
+      placeholder: No.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: What is required for this story to be accepted?
+      placeholder: Required
+    validations:
+      required: true
