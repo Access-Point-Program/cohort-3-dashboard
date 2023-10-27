@@ -69,7 +69,7 @@ export class LayoutsTableComponent {
 		// Send a delete request to api
 	}
 	edit() {
-		// Gangsta Spunch Bop
+		// Redirect to the layouts page
 	}
 }
 
