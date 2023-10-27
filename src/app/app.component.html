@@ -1,18 +1,31 @@
 <div class="main-body">
-<app-sidebar></app-sidebar>
-<div class="table-1">
-<ul ngbNav #nav="ngbNav" class="nav-pills" [(activeId)]="active">
-    <li ngbNavItem="layouts">
-      <button ngbNavLink [id]="active === 'layouts'? 'active': ''" (click)="changeActive('layouts')">Layouts</button>
-      <ng-template ngbNavContent>
-        <app-table></app-table>
-      </ng-template>
-    </li>
-    <li ngbNavItem="rulesets">
-      <button ngbNavLink [id]="active === 'rulesets'? 'active': ''" (click)="changeActive('rulesets')">Rulesets</button>
-      <ng-template ngbNavContent>Rulesets Table</ng-template>
-    </li>
-  </ul>
-  <div [ngbNavOutlet]="nav"></div>
-</div>
+  <app-sidebar></app-sidebar>
+  <div class="table">
+    <ul ngbNav #nav="ngbNav" class="nav-pills" [(activeId)]="active">
+      <li ngbNavItem="layouts">
+        <button
+          ngbNavLink
+          [id]="active === 'layouts' ? 'active' : ''"
+          (click)="changeActive('layouts')"
+        >
+          Layouts
+        </button>
+        <ng-template ngbNavContent>
+          <hr >
+          <app-table></app-table>
+        </ng-template>
+      </li>
+      <li ngbNavItem="rulesets">
+        <button
+          ngbNavLink
+          [id]="active === 'rulesets' ? 'active' : ''"
+          (click)="changeActive('rulesets')"
+        >
+          Rulesets
+        </button>
+        <ng-template ngbNavContent>Rulesets Table</ng-template>
+      </li>
+    </ul>
+    <div [ngbNavOutlet]="nav"></div>
+  </div>
 </div>

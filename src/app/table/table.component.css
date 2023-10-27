@@ -9,3 +9,7 @@
   height: 24px;
   flex-shrink: 0;
 }
+
+ngb-pagination ::ng-deep ul > li.active > a {
+  background-color: #7749f8 !important;
+}
