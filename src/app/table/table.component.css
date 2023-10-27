@@ -1,0 +1,11 @@
+#Trash {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-right: 15px;
+}
+#Pencil {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}

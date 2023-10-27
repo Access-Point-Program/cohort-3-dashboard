@@ -9,8 +9,9 @@
 //   title = 'Dashboard';
 // }
 
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -18,9 +19,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  active = 'layouts';
   title = 'Demo';
   data = {}  as any;
   constructor(private http: HttpClient) {
     http.get('resource').subscribe(data => this.data = data);
+  }
+
+  @Output() active2: string = 'layouts';
+  changeActive(a: string): void {
+    this.active2 = a;
   }
 }

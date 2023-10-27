@@ -1,0 +1,25 @@
+.table-1{
+    width: 100%;
+    padding-top: 110px;
+    padding-left: 130px;
+    padding-right: 130px;
+    
+}
+
+.main-body{
+    display: flex;
+}
+
+
+#active {
+    border-radius: 8px;
+    background: var(--primary-color, #7749F8);
+}
+
+.p, button {
+    color: black;
+}
+
+.main-body {
+    background-color: white;
+}
