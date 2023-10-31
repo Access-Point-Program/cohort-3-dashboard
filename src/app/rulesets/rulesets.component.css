@@ -1,0 +1,15 @@
+#Trash {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-right: 15px;
+  }
+  #Pencil {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+  
+  ngb-pagination ::ng-deep ul > li.active > a {
+    background-color: #7749f8 !important;
+  }
