@@ -1,17 +1,9 @@
-// import { Component } from '@angular/core';
 
-// @Component({
-//   selector: 'app-root',
-//   templateUrl: './app.component.html',
-//   styleUrls: ['./app.component.css']
-// })
-// export class AppComponent {
-//   title = 'Dashboard';
-// }
 
-import { Component, Output } from '@angular/core';
+import { Component, Output, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -30,5 +22,7 @@ export class AppComponent {
   changeActive(a: string): void {
     this.active2 = a;
   }
+
+ 
   
 }

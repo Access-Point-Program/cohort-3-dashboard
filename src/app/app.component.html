@@ -2,30 +2,26 @@
   <app-sidebar></app-sidebar>
   <div class="table">
     <ul ngbNav #nav="ngbNav" class="nav-pills" [(activeId)]="active">
-      <li ngbNavItem="layouts">
+      <li ngbNavItem="layouts"  [routerLink]="['/layouts']" routerLinkActive="active">
         <button
           ngbNavLink
-          [id]="active === 'layouts' ? 'active' : ''"
-          (click)="changeActive('layouts')"
         >
           Layouts
         </button>
         <ng-template ngbNavContent>
           <hr >
-          <app-table></app-table>
+          <router-outlet></router-outlet>
         </ng-template>
       </li>
-      <li ngbNavItem="rulesets">
+      <li ngbNavItem="rulesets" [routerLink]="['/rulesets']" routerLinkActive="active">
         <button
           ngbNavLink
-          [id]="active === 'rulesets' ? 'active' : ''"
-          (click)="changeActive('rulesets')"
         >
           Rulesets
         </button>
         <ng-template ngbNavContent>
           <hr >
-          <app-rulesets></app-rulesets>
+          <router-outlet></router-outlet>
         </ng-template>
       </li>
     </ul>
