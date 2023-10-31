@@ -30,4 +30,5 @@ export class AppComponent {
   changeActive(a: string): void {
     this.active2 = a;
   }
+  
 }
