@@ -7,7 +7,7 @@ import {
 } from "@ng-bootstrap/ng-bootstrap";
 
 interface Layout {
-  Id: number;
+  Id?: number;
   name: string;
   creator: string;
   createdOn: Date;

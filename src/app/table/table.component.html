@@ -9,8 +9,8 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let layout of layouts; index as i">
-			<th scope="row">{{ i + 1 }}</th>
+		<tr *ngFor="let layout of layouts">
+			<th scope="row">{{ layout.Id }}</th>
 			<td>{{ layout.name }}</td>
 			<td>{{ layout.creator }}</td>
 			<td>{{ layout.createdOn | date }}</td>
