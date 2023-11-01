@@ -17,10 +17,10 @@
   display: flex;
 }
 
-#active {
+/* .active {
   border-radius: 8px;
   background: var(--primary-color, #7749f8);
-}
+} */
 
 
 
@@ -39,5 +39,14 @@ button {
 
 button.active{
   background-color: #7749f8 !important;
+  color: white;
 }
+
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+
 
