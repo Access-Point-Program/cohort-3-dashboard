@@ -2,9 +2,10 @@
   <app-sidebar></app-sidebar>
   <div class="table">
     <ul ngbNav #nav="ngbNav" class="nav-pills" [(activeId)]="active">
-      <li ngbNavItem="layouts"  [routerLink]="['/layouts']" routerLinkActive="active">
+      <li ngbNavItem="layouts" [routerLink]="['/layouts']" routerLinkActive="active">
         <button
           ngbNavLink
+          (click)="changeTab('layouts')"
         >
           Layouts
         </button>
@@ -16,6 +17,7 @@
       <li ngbNavItem="rulesets" [routerLink]="['/rulesets']" routerLinkActive="active">
         <button
           ngbNavLink
+          (click)="changeTab('rulesets')"
         >
           Rulesets
         </button>

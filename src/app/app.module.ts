@@ -7,6 +7,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { LayoutsTableComponent} from './table/table.component';
 import { RulesetsComponent } from './rulesets/rulesets.component';
 import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     HttpClientModule,
     NgbModule,
-    RouterModule.forRoot([
-      {path:'layouts', component: LayoutsTableComponent},
-      {path:'rulesets', component: RulesetsComponent},
-      {path:'', redirectTo: 'layouts',pathMatch: 'full'},
-      {path:'**', redirectTo:'layouts',pathMatch: 'full'},
-    ])
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

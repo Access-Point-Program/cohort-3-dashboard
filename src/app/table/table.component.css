@@ -16,5 +16,6 @@ ngb-pagination ::ng-deep ul > li > a{
 
 ngb-pagination ::ng-deep ul > li.active > a {
   background-color: #7749f8 !important;
+  color: white !important;
 }
 
