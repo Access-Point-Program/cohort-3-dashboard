@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "mock:rulesets": "mocker ./mock/api.js --host localhost --port 8080",
-    "mock:layouts": "mocker ./mock/layoutapi.js --host localhost --port 8070"
+    "mock:layouts": "mocker ./mock/layoutapi.js --host localhost --port 9003"
   },
   "private": true,
   "dependencies": {
