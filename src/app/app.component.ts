@@ -13,8 +13,7 @@ import { ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 export class AppComponent implements OnInit{
   active: string;
   title = 'Dashboard';
-  data = {}  as any;
-  constructor(private http: HttpClient, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor( private router: Router, private activatedRoute: ActivatedRoute) {
     this.active = localStorage.getItem('activeTab') || 'layouts';
 
     // Subscribe to the router events and updates tab when change happens
@@ -24,7 +23,6 @@ export class AppComponent implements OnInit{
       }
     });
 
-    http.get('resource').subscribe(data => this.data = data);
   }
 
   //intiliaze the tab based on the route being used
