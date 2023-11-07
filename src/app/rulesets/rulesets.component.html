@@ -9,8 +9,8 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let ruleset of rulesets">
-			<th scope="row">{{ ruleset.Id }}</th>
+		<tr *ngFor="let ruleset of rulesetsData">
+			<th scope="row">{{ ruleset.id }}</th>
 			<td>{{ ruleset.name }}</td>
 			<td>{{ ruleset.creator }}</td>
 			<td>{{ ruleset.createdOn | date }}</td>
