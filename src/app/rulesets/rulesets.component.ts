@@ -18,17 +18,17 @@ interface Ruleset {
 const Rulesets: Ruleset[] = [
   {
     Id: 1,
-    name: "Yarrr Mateys",
-    creator: "Nick Jansen",
-    createdOn: new Date("02/25/2005"),
+    name: "Bilbo",
+    creator: "Cyclones",
+    createdOn: new Date("10/25/2023"),
     actionDel: "/delete",
     actionEdit: "/edit",
   },
   {
     Id: 2,
-    name: "Avast Laddies",
-    creator: "John Doe",
-    createdOn: new Date("06/22/2005"),
+    name: "Carol",
+    creator: "Cyclones",
+    createdOn: new Date("10/25/3023"),
     actionDel: "/delete",
     actionEdit: "/edit",
   },
