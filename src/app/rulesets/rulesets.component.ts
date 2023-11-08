@@ -10,6 +10,7 @@ import { RulesetsService } from "../rulesets.service";
 
 
 
+
 @Component({
   selector: 'app-rulesets',
   templateUrl: './rulesets.component.html',
@@ -41,15 +42,17 @@ export class RulesetsComponent implements OnInit{
 
 
   
-  delete() {
+  delete(ruleset: number): void {
     // Send a delete request to api
+  this.rulesetService.deleteRuleset(ruleset).subscribe((el) => this.getRulesets()); 
+  
   }
   edit() {
     // Redirect to the layouts page
   }
   
   getRulesets(){
-    this.rulesetService.getRulesets().subscribe((data) => {this.rulesets = data; this.refreshRulesets();});
+    this.rulesetService.getRulesets().subscribe((data) => {this.rulesets = data; this.refreshRulesets(); this.collectionSize = this.rulesets.length});
   }
 
 
