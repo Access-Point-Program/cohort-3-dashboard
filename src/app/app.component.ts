@@ -15,6 +15,7 @@ export class AppComponent implements OnInit{
   title = 'Dashboard';
   constructor( private router: Router, private activatedRoute: ActivatedRoute) {
     this.active = localStorage.getItem('activeTab') || 'layouts';
+    
 
     // Subscribe to the router events and updates tab when change happens
     this.router.events.subscribe(event => {
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit{
     });
 
   }
+  
 
   //intiliaze the tab based on the route being used
   ngOnInit() {

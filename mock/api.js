@@ -13,7 +13,8 @@ const proxy = {
       res.json(mockRulesets)
     },
     'DELETE /rulesets/:id': (req, res) => {
-      mockRulesets = mockRulesets.filter(({id}) => id != req.params.id)
+      mockRulesets = mockRulesets.filter(({id}) => id  != req.params.id)
+      res.status(204);
       res.send();
     }
   }
