@@ -14,7 +14,9 @@
 			<td>{{ ruleset.name }}</td>
 			<td>{{ ruleset.creator }}</td>
 			<td>{{ ruleset.createdOn | date }}</td>
-            <td><button (click)="delete(ruleset.id)" class="Trash"></button><img src="../assets/media/pencil-fill.svg" alt="edit logo" (click)="edit()" id="Pencil"/></td>
+			<div class="action-buttons">
+            	<td><button (click)="delete(ruleset.id)" class="Trash"></button><button (click)="edit()" class="Pencil"></button></td>
+			</div>
 		</tr>
 	</tbody>
 </table>
