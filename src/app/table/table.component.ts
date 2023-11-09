@@ -36,8 +36,10 @@ export class LayoutsTableComponent implements OnInit{
       (this.page - 1) * this.pageSize + this.pageSize
     );
   }
-  delete() {
+  delete(layout: number): void {
     // Send a delete request to api
+  this.layoutService.deleteLayout(layout).subscribe((el) => this.getLayouts()); 
+  
   }
   edit() {
     // Redirect to the layouts page

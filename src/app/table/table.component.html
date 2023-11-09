@@ -14,7 +14,7 @@
 			<td>{{ layout.name }}</td>
 			<td>{{ layout.creator }}</td>
 			<td>{{ layout.createdOn | date }}</td>
-            <td><img src="../assets/media/trash-fill.svg" alt="delete logo" (click)="delete()" id="Trash"/><img src="../assets/media/pencil-fill.svg" alt="edit logo" (click)="edit()" id="Pencil"/></td>
+            <td><button (click)="delete(layout.id)" class="Trash"></button><img src="../assets/media/pencil-fill.svg" alt="edit logo" (click)="edit()" id="Pencil"/></td>
 		</tr>
 	</tbody>
 </table>

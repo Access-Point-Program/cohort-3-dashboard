@@ -1,9 +1,11 @@
-#Trash {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  margin-right: 15px;
-}
+.Trash {
+  background-image: url("../../assets/media/trash-fill.svg");
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-right: 15px;
+    border: 0px;
+  }
 #Pencil {
   width: 24px;
   height: 24px;
