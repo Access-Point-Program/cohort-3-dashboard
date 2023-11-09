@@ -46,7 +46,7 @@ export class LayoutsTableComponent implements OnInit{
   }
 
   getLayouts(){
-    this.layoutService.getLayouts().subscribe((data) => {this.layouts = data; this.refreshLayouts();});
+    this.layoutService.getLayouts().subscribe((data) => {this.layouts = data; this.refreshLayouts(); this.collectionSize = this.layouts.length});
   }
 
 }
