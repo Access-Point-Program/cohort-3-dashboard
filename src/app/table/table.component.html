@@ -15,7 +15,7 @@
 			<td>{{ layout.creator }}</td>
 			<td>{{ layout.createdOn | date }}</td>
 			<div class="action-buttons">
-            	<td><button (click)="delete(layout.id)" class="Trash"></button><button (click)="edit()" class="Pencil"></button></td>
+            	<td><button (click)="delete(layout.id)" class="Trash"></button><button (click)="edit(layout.id)" class="Pencil"></button></td>
 			</div>
 		</tr>
 	</tbody>

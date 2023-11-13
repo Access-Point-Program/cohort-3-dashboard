@@ -15,7 +15,7 @@
 			<td>{{ ruleset.creator }}</td>
 			<td>{{ ruleset.createdOn | date }}</td>
 			<div class="action-buttons">
-            	<td><button (click)="delete(ruleset.id)" class="Trash"></button><button (click)="edit()" class="Pencil"></button></td>
+            	<td><button (click)="delete(ruleset.id)" class="Trash"></button><button (click)="edit(ruleset.id)" class="Pencil"></button></td>
 			</div>
 		</tr>
 	</tbody>
