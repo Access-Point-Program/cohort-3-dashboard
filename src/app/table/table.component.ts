@@ -41,8 +41,16 @@ export class LayoutsTableComponent implements OnInit{
   this.layoutService.deleteLayout(layout).subscribe((el) => this.getLayouts()); 
   
   }
-  edit() {
-    // Redirect to the layouts page
+  edit(layoutId: number) {
+    let URL: string;
+
+    if (window.location.hostname === 'AreWebsiteName.com'){
+      URL = `https://Rulesets-website.com/edit/${layoutId}`;
+    } else {
+      URL = `https://localhost:4200/layouts`;
+    }
+
+    window.location.href = URL;
   }
 
   getLayouts(){

@@ -47,8 +47,17 @@ export class RulesetsComponent implements OnInit{
   this.rulesetService.deleteRuleset(ruleset).subscribe((el) => this.getRulesets()); 
   
   }
-  edit() {
-    // Redirect to the layouts page
+
+  edit(rulesetId: number) {
+    let URL: string;
+
+    if (window.location.hostname === 'AreWebsiteName.com'){
+      URL = `https://Rulesets-website.com/edit/${rulesetId}`;
+    } else {
+      URL = `https://localhost:4200/rulesets`;
+    }
+
+    window.location.href = URL;
   }
   
   getRulesets(){
