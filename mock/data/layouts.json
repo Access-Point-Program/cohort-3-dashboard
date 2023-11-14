@@ -2,13 +2,13 @@
     {
       "id": 1,
       "name": "Bilbo",
-      "creator": "Cyclones",
+      "creator": "John Doe",
       "creationDate": "10/25/2023"
     },
     {
       "id": 2,
       "name": "Carol",
-      "creator": "Cyclones",
+      "creator": "John Doe",
       "creationDate": "10/25/3023"
     },
     {

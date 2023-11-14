@@ -78,7 +78,7 @@ public class LayoutControllerTests {
 		);
 
 		given()
-			.when().get("/layouts")
+			.when().get("/layout")
 			.then()
 				.body("[0]", hasEntry("id", 1))
 				.body("[0]", hasEntry("name", "Bilbo"))
