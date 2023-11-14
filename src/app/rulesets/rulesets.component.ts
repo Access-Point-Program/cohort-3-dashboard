@@ -51,7 +51,7 @@ export class RulesetsComponent implements OnInit{
   edit(rulesetId: number) {
     let URL: string;
 
-    if (window.location.hostname === 'AreWebsiteName.com'){
+    if (window.location.hostname === 'OurWebsiteName.com'){
       URL = `https://Rulesets-website.com/edit/${rulesetId}`;
     } else {
       URL = `https://localhost:4200/rulesets`;

@@ -13,7 +13,7 @@
 			<th scope="row">{{ ruleset.id }}</th>
 			<td>{{ ruleset.name }}</td>
 			<td>{{ ruleset.creator }}</td>
-			<td>{{ ruleset.createdOn | date }}</td>
+			<td>{{ ruleset.creationDate | date }}</td>
 			<div class="action-buttons">
             	<td><button (click)="delete(ruleset.id)" class="Trash"></button><button (click)="edit(ruleset.id)" class="Pencil"></button></td>
 			</div>
