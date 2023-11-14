@@ -13,7 +13,7 @@
 			<th scope="row">{{ layout.id }}</th>
 			<td>{{ layout.name }}</td>
 			<td>{{ layout.creator }}</td>
-			<td>{{ layout.createdOn | date }}</td>
+			<td>{{ layout.creationDate | date }}</td>
 			<div class="action-buttons">
             	<td><button (click)="delete(layout.id)" class="Trash"></button><button (click)="edit(layout.id)" class="Pencil"></button></td>
 			</div>

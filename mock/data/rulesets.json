@@ -3,54 +3,54 @@
       "id": 1,
       "name": "Bilbo",
       "creator": "John Doe",
-      "creation_date": "10/25/2023"
+      "creationDate": "10/25/2023"
     },
     {
       "id": 2,
       "name": "Carol",
       "creator": "John Doe",
-      "creation_date": "10/25/3023"
+      "creationDate": "10/25/3023"
     },
     {
       "id": 3,
       "name": "Ruleset 3",
       "creator": "John Doe",
-      "creation_date": "06/23/2005"
+      "creationDate": "06/23/2005"
     },
     {
       "id": 4,
       "name": "Ruleset 4",
       "creator": "John Doe",
-      "creation_date": "06/24/2005"
+      "creationDate": "06/24/2005"
     },
     {
       "id": 5,
       "name": "Ruleset 5",
       "creator": "John Doe",
-      "creation_date": "06/24/2005"
+      "creationDate": "06/24/2005"
     },
     {
       "id": 6,
       "name": "Ruleset 6",
       "creator": "John Doe",
-      "creation_date": "06/24/2005"
+      "creationDate": "06/24/2005"
     },
     {
       "id": 7,
       "name": "Ruleset 7",
       "creator": "John Doe",
-      "creation_date": "06/24/2005"
+      "creationDate": "06/24/2005"
     },
     {
       "id": 8,
       "name": "Ruleset 8",
       "creator": "John Doe",
-      "creation_date": "06/24/2005"
+      "creationDate": "06/24/2005"
     },
     {
       "id": 9,
       "name": "Ruleset 9",
       "creator": "John Doe",
-      "creation_date": "06/24/2005"
+      "creationDate": "06/24/2005"
     }
   ]
