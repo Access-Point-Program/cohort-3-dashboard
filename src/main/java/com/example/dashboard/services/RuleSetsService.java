@@ -23,6 +23,10 @@ public class RuleSetsService {
     }
 
     public void deleteRuleSet(Long id) {
-
+        this.webClient.delete()
+                .uri("http://localhost:8080/rulesets/{id}", id)
+                .retrieve()
+                .toBodilessEntity()
+                .block();
     }
 }
