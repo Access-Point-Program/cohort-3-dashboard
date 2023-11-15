@@ -54,7 +54,7 @@ export class RulesetsComponent implements OnInit{
     if (window.location.hostname === 'OurWebsiteName.com'){
       URL = `https://Rulesets-website.com/edit/${rulesetId}`;
     } else {
-      URL = `https://localhost:4200/rulesets`;
+      URL = `https://localhost:4200/rulesets/${rulesetId}`;
     }
 
     window.location.href = URL;
