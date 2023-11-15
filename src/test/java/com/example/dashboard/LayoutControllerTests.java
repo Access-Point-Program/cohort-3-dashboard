@@ -1,7 +1,7 @@
 package com.example.dashboard;
 
-import com.example.dashboard.models.RuleSet;
-import com.example.dashboard.services.RuleSetsService;
+import com.example.dashboard.models.Layout;
+import com.example.dashboard.services.LayoutService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
@@ -28,7 +28,7 @@ import static org.hamcrest.Matchers.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class RuleSetsControllerTests {
+public class LayoutControllerTests {
 
 	private static MockWebServer mockWebServer;
 
@@ -54,20 +54,20 @@ public class RuleSetsControllerTests {
 	}
 
 	@Test
-	public void whenGetAllRuleSets_thenRespondWith200() {
+	public void whenGetAllLayout_thenRespondWith200() {
 		given()
-			.when().get("/ruleset")
+			.when().get("/layout")
 			.then().statusCode(200);
 	}
 
 	@Test
-	public void whenGetAllRuleSetsIsCalled_thenItReturnsTheExpectedValues() throws JsonProcessingException {
-		RuleSet mock1 = new RuleSet();
+	public void whenGetAllLayoutIsCalled_thenItReturnsTheExpectedValues() throws JsonProcessingException {
+		Layout mock1 = new Layout();
 		mock1.id = 1L;
 		mock1.name = "Bilbo";
 		mock1.creationDate = "10/25/2023";
 
-		RuleSet mock2 = new RuleSet();
+		Layout mock2 = new Layout();
 		mock2.id = 2L;
 		mock2.name = "Carol";
 		mock2.creationDate = "10/25/3023";
@@ -78,7 +78,7 @@ public class RuleSetsControllerTests {
 		);
 
 		given()
-			.when().get("/ruleset")
+			.when().get("/layout")
 			.then()
 				.body("[0]", hasEntry("id", 1))
 				.body("[0]", hasEntry("name", "Bilbo"))
