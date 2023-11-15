@@ -47,7 +47,7 @@ export class LayoutsTableComponent implements OnInit{
     if (window.location.hostname === 'AreWebsiteName.com'){
       URL = `https://Rulesets-website.com/edit/${layoutId}`;
     } else {
-      URL = `https://localhost:4200/layouts`;
+      URL = `https://localhost:4200/layouts/${layoutId}`;
     }
 
     window.location.href = URL;
