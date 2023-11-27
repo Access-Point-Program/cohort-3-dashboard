@@ -10,7 +10,6 @@
           Layouts
         </button>
         <ng-template ngbNavContent>
-          <hr >
           <router-outlet></router-outlet>
         </ng-template>
       </li>
@@ -20,13 +19,21 @@
           (click)="changeTab('rulesets')"
         >
           Rulesets
-        </button>
+        </button>  
+     <div>
+    
+    </div>
         <ng-template ngbNavContent>
-          <hr >
           <router-outlet></router-outlet>
         </ng-template>
       </li>
     </ul>
+    <hr>
+ 
     <div [ngbNavOutlet]="nav"></div>
+  <ng-template ngbNavContent>
+    <hr >
+    <router-outlet></router-outlet>
+  </ng-template>
   </div>
 </div>

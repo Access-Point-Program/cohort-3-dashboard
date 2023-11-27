@@ -48,5 +48,21 @@ a{
   text-decoration: none;
 }
 
+#createLayout{
+  background-color: #7749f8 !important;
+  color: white;
+  display: flex;
+  justify-content: end;
+  padding: 5px px;
+  gap: 8px;
+  border-radius: 6px;
+}
+ 
+hr{
+    margin-bottom: -8px;
+}
+
+
+
 
 
