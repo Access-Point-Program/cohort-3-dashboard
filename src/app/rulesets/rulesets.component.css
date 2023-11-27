@@ -34,3 +34,8 @@
     background-color: #7749f8 !important;
     color: white !important;
   }
+
+  .button{
+    display: flex;
+    justify-content: flex-end; 
+  }
