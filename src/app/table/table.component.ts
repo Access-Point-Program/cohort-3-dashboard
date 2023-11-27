@@ -20,11 +20,12 @@ export class LayoutsTableComponent implements OnInit{
   page = 1;
   pageSize = 7;
   collectionSize = 9;
-  layoutsData?: LayoutData[];
+  layoutsData?: LayoutData[];  
 
   constructor(private layoutService: LayoutsService) {
     this.refreshLayouts();
   }
+  
 
   ngOnInit(){
     this.getLayouts();
