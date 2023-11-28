@@ -45,11 +45,7 @@ export class LayoutsTableComponent implements OnInit{
   edit(layoutId: number) {
     let URL: string;
 
-    if (window.location.hostname === 'AreWebsiteName.com'){
-      URL = `https://Rulesets-website.com/edit/${layoutId}`;
-    } else {
-      URL = `https://localhost:4200/layouts/${layoutId}`;
-    }
+      URL = `http://localhost:9003/layout/${layoutId}`;
 
     window.location.href = URL;
   }

@@ -29,6 +29,7 @@
         style="cursor: pointer"
         (click)="change('d')"
         [class.active]="active === 'd'"
+        onclick="location.href = 'http://localhost:4200/layouts';"
       >
         <svg
           width="20"
@@ -50,6 +51,7 @@
         style="cursor: pointer"
         (click)="change('r')"
         [class.active]="active === 'r'"
+        onclick="location.href = 'http://localhost:9005/';"
       >
         <svg
           width="20"
@@ -71,6 +73,7 @@
         style="cursor: pointer"
         (click)="change('s')"
         [class.active]="active === 's'"
+        onclick="location.href = 'http://localhost:9010/';"
       >
         <svg
           width="20"
@@ -93,7 +96,7 @@
       style="cursor: pointer"
       class="d-flex align-content-top justify-content-center text-white text-decoration-underline text-decoration-bold"
     >
-      <strong>Sign Out</strong>
+      <strong onclick="location.href = 'http://localhost:9001/logout';">Sign Out</strong>
     </a>
   </div>
 </div>
