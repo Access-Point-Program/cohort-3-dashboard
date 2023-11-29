@@ -35,6 +35,10 @@ ngb-pagination ::ng-deep ul > li.active > a {
   color: white !important;
 }
 
+ngb-pagination {
+  margin-bottom: -30px;
+}
+
 .button{
   display: flex;
   justify-content: end; 

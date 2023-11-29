@@ -35,6 +35,11 @@
     color: white !important;
   }
 
+  ngb-pagination {
+    margin-bottom: -30px;
+  }
+
+
   .button{
     display: flex;
     justify-content: flex-end; 
