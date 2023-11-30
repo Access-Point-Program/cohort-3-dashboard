@@ -1,15 +1,19 @@
-
+<!-- Button container for creating a new ruleset -->
 <div class="button">
+	  <!-- Button for creating a new ruleset with inline styles and a click event to navigate to a specific URL -->
 	<button id="createRuleset" style="background-color: #7749f8; color: white; border-radius: 6px; padding: 5px 6px; border: none;"
 	onclick="location.href = 'http://localhost:9012/createnewruleset';"
     >
     Create New Ruleset
   </button>
 </div>
+<!-- Horizontal line to visually separate content -->
 <hr>
+<!-- Table for displaying ruleset information -->
 <table class="table table-striped">
 	<thead>
 		<tr>
+			      <!-- Table headers -->
 			<th scope="col">#</th>
 			<th scope="col">Ruleset Name</th>
 			<th scope="col">Created By</th>
@@ -18,19 +22,27 @@
 		</tr>
 	</thead>
 	<tbody>
+		    <!-- Loop through rulesetsData and display information in each row -->
 		<tr *ngFor="let ruleset of rulesetsData">
+			      <!-- Data cells for ruleset information -->
 			<th scope="row">{{ ruleset.id }}</th>
 			<td>{{ ruleset.name }}</td>
 			<td>{{ ruleset.creator }}</td>
 			<td>{{ ruleset.creationDate | date }}</td>
+			      <!-- Container for action buttons within each row -->
 			<div class="action-buttons">
-            	<td><button (click)="delete(ruleset.id)" class="Trash"></button><button (click)="edit(ruleset.id)" class="Pencil"></button></td>
+            	<td>
+					<!-- Button for deleting a ruleset with a click event calling the delete method -->
+					<button (click)="delete(ruleset.id)" class="Trash"></button>
+					<!-- Button for editing a ruleset with a click event calling the edit method -->
+					<button (click)="edit(ruleset.id)" class="Pencil"></button></td>
 			</div>
 		</tr>
 	</tbody>
 </table>
-
+<!-- Container for pagination with a Bootstrap class for flexible alignment -->
 <div class="d-flex justify-content-between p-2">
+	  <!-- ng-bootstrap pagination component with bindings and a callback for page change -->
 	<ngb-pagination
 		[collectionSize]="collectionSize"
 		[(page)]="page"

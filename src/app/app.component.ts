@@ -1,5 +1,4 @@
-
-
+// Importing necessary modules and components
 import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
@@ -11,8 +10,8 @@ import { ActivatedRoute, Router, NavigationEnd} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  active: string;
-  title = 'Dashboard';
+  active: string;// Variable to store the active tab
+  title = 'Dashboard';// Application title
   constructor( private router: Router, private activatedRoute: ActivatedRoute) {
     this.active = localStorage.getItem('activeTab') || 'layouts';
     

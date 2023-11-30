@@ -9,11 +9,14 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
+// Service class to handle business logic related to Layout entities.
 @Service
 public class LayoutService {
+    // Autowiring WebClient to make HTTP requests.
     @Autowired
     private WebClient webClient;
 
+    // Fetches all layouts from an external service.
     public List<Layout> getAllLayout() {
         return this.webClient.get()
                 .uri("http://localhost:9003/layouts/")
@@ -22,6 +25,7 @@ public class LayoutService {
                 .block();
     }
 
+    // Deletes a layout by its unique identifier.
     public void deleteLayout(Long id) {
         this.webClient.delete()
                 .uri("http://localhost:9003/layouts/{id}", id)

@@ -1,45 +1,53 @@
+/* Styling for a container with action buttons */
 .action-buttons {
   display: flex;
   align-items: center;
 }
+
+/* Styling for the Trash button */
 .Trash {
   background-image: url("../../assets/media/trash-fill.svg");
-    position: relative;
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    margin-right: 15px;
-    border: 0px;
-    background-repeat: no-repeat;
-    background-color: transparent;
-  }
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-right: 15px;
+  border: 0px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
 
-  .Pencil {
-    background-image: url("../../assets/media/pencil-fill.svg");
-    position: relative;
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    margin-right: 15px;
-    border: 0px;
-    background-repeat: no-repeat;
-    background-color: transparent;
-  }
+/* Styling for the Pencil button */
+.Pencil {
+  background-image: url("../../assets/media/pencil-fill.svg");
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-right: 15px;
+  border: 0px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
 
-ngb-pagination ::ng-deep ul > li > a{
+/* Styling for customizing the color of pagination links */
+ngb-pagination ::ng-deep ul > li > a {
   color: black !important;
 }
 
+/* Styling for the active state of pagination links */
 ngb-pagination ::ng-deep ul > li.active > a {
   background-color: #7749f8 !important;
   color: white !important;
 }
 
+/* Styling for the overall pagination component */
 ngb-pagination {
   margin-bottom: -30px;
 }
 
-.button{
+/* Styling for a button container with right-aligned content */
+.button {
   display: flex;
-  justify-content: end; 
+  justify-content: flex-end;
 }
