@@ -1,13 +1,18 @@
+<!-- Container for a button to create a new layout -->
 <div class="button">
 	<button id="createLayout" style="background-color: #7749f8; color: white; border-radius: 6px; padding: 5px 6px; border: none;" onclick="location.href = 'http://localhost:9003/layout';"
     >
     Create New Layout
   </button>
 </div>
+<!-- Horizontal line separator -->
 <hr>
+
+<!-- Table for displaying layout data -->
 <table class="table table-striped">
 	<thead>
 		<tr>
+			      <!-- Table header columns -->
 			<th scope="col">#</th>
 			<th scope="col">Layout Name</th>
 			<th scope="col">Created By</th>
@@ -16,19 +21,28 @@
 		</tr>
 	</thead>
 	<tbody>
+		    <!-- Looping through layout data to populate table rows -->
 		<tr *ngFor="let layout of layoutsData">
+			    <!-- Table data columns -->
 			<th scope="row">{{ layout.id }}</th>
 			<td>{{ layout.name }}</td>
 			<td>{{ layout.creator }}</td>
 			<td>{{ layout.creationDate | date }}</td>
+			    <!-- Container for action buttons in each row -->
 			<div class="action-buttons">
-            	<td><button (click)="delete(layout.id)" class="Trash"></button><button (click)="edit(layout.id)" class="Pencil"></button></td>
+				        <!-- Button to delete the layout -->
+            	<td><button (click)="delete(layout.id)" class="Trash"></button>
+					    <!-- Button to edit the layout -->
+					<button (click)="edit(layout.id)" class="Pencil"></button>
+				</td>
 			</div>
 		</tr>
 	</tbody>
 </table>
 
+<!-- Container for pagination with spacing and alignment -->
 <div class="d-flex justify-content-between p-2">
+	  <!-- NgbPagination component for navigating through pages -->
 	<ngb-pagination
 		[collectionSize]="collectionSize"
 		[(page)]="page"

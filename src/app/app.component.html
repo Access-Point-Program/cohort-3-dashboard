@@ -1,7 +1,13 @@
+<!-- Main body container -->
 <div class="main-body">
+    <!-- Sidebar component -->
   <app-sidebar></app-sidebar>
+
+    <!-- Table container -->
   <div class="table">
+        <!-- Navigation using ng-bootstrap tabs -->
     <ul ngbNav #nav="ngbNav" class="nav-pills" [(activeId)]="active">
+            <!-- Layouts tab -->
       <li ngbNavItem="layouts" [routerLink]="['/layouts']" routerLinkActive="active">
         <button
           ngbNavLink
@@ -13,6 +19,7 @@
           <router-outlet></router-outlet>
         </ng-template>
       </li>
+            <!-- Rulesets tab -->
       <li ngbNavItem="rulesets" [routerLink]="['/rulesets']" routerLinkActive="active">
         <button
           ngbNavLink
@@ -21,15 +28,17 @@
           Rulesets
         </button>  
      <div>
-    
+              <!-- Add content here if needed -->
     </div>
         <ng-template ngbNavContent>
           <router-outlet></router-outlet>
         </ng-template>
       </li>
     </ul>
+        <!-- Horizontal rule -->
     <hr>
  
+        <!-- Outlet for ng-bootstrap tabs -->
     <div [ngbNavOutlet]="nav"></div>
   <ng-template ngbNavContent>
     <hr >

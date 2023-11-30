@@ -1,7 +1,9 @@
+/* Styling for a container with action buttons */
 .action-buttons {
   display: flex;
   align-items: center;
 }
+/* Styling for the Trash button */
 .Trash {
   background-image: url("../../assets/media/trash-fill.svg");
     position: relative;
@@ -13,7 +15,7 @@
     background-repeat: no-repeat;
     background-color: transparent;
   }
-
+/* Styling for the edit/pencil button */
   .Pencil {
     background-image: url("../../assets/media/pencil-fill.svg");
     position: relative;
@@ -25,21 +27,21 @@
     background-repeat: no-repeat;
     background-color: transparent;
   }
-  
+  /* Styling for customizing the color of pagination links */
   ngb-pagination ::ng-deep ul > li > a{
     color: black !important;
   }
-  
+  /* Styling for the active state of pagination links */
   ngb-pagination ::ng-deep ul > li.active > a {
     background-color: #7749f8 !important;
     color: white !important;
   }
-
+/* Styling for the overall pagination component */
   ngb-pagination {
     margin-bottom: -30px;
   }
 
-
+/* Styling for a button container with right-aligned content */
   .button{
     display: flex;
     justify-content: flex-end; 
