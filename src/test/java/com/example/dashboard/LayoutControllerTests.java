@@ -121,4 +121,16 @@ public class LayoutControllerTests {
 				.body("[1]", hasEntry("name", "Carol"))
 				.body("[1]", hasEntry("creationDate", "10/25/3023"));
 	}
+
+
+	@Test
+	public void whenDeleteLayout_thenRespondWithNoContent(){
+		Long layoutIdToDelete = 1L;
+
+		given()
+				.pathParam("id", layoutIdToDelete)
+				.when().delete("/layout/{id}")
+				.then().statusCode(204);
+	}
+
 }
