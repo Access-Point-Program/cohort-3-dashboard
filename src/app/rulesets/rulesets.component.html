@@ -33,13 +33,23 @@
 			<div class="action-buttons">
             	<td>
 					<!-- Button for deleting a ruleset with a click event calling the delete method -->
-					<button (click)="delete(ruleset.id)" class="Trash"></button>
+					<button (click)="confirmDelete(ruleset.id)" class="Trash"></button>
 					<!-- Button for editing a ruleset with a click event calling the edit method -->
 					<button (click)="edit(ruleset.id)" class="Pencil"></button></td>
 			</div>
 		</tr>
 	</tbody>
 </table>
+
+<div class="confirm" *ngIf="showConfirmation">
+	<div class="confirmation-box">
+		<p>Are you sure you want to delete?</p>
+		<button (click)="cancelDelete()">Cancel</button>
+		<button (click)="delete()">Delete</button>
+	</div>
+</div>
+
+
 <!-- Container for pagination with a Bootstrap class for flexible alignment -->
 <div class="d-flex justify-content-between p-2">
 	  <!-- ng-bootstrap pagination component with bindings and a callback for page change -->

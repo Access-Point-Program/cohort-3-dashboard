@@ -27,6 +27,8 @@ export class RulesetsComponent implements OnInit{
   pageSize = 7;
   collectionSize = 9;
   rulesetsData?: RulesetData[];
+  showConfirmation: boolean = false;
+  itemIdToDelete: number | undefined;
 
   
  // Constructor injecting the RulesetsService
@@ -50,10 +52,36 @@ export class RulesetsComponent implements OnInit{
   }
 
 
+  confirmDelete(itemId: number): void {
+    this.itemIdToDelete = itemId;
+    this.showConfirmation = true;
+  }
+
+  cancelDelete(): void {
+    this.showConfirmation = false;
+    this.itemIdToDelete = undefined;
+  }
+
+  // this.rulesetService.deleteRuleset(ruleset).subscribe((el) => this.getRulesets());
+
   // Method to delete a ruleset
-  delete(ruleset: number): void {
+  delete(): void {
+  if (this.itemIdToDelete) {
     // Send a delete request to api
-  this.rulesetService.deleteRuleset(ruleset).subscribe((el) => this.getRulesets()); 
+  this.rulesetService.deleteRuleset(this.itemIdToDelete).subscribe(() => {
+
+    this.showConfirmation = false;
+    this.itemIdToDelete = undefined;
+    this.getRulesets();
+  },
+  (error) => {
+    console.error(error);
+
+    this.showConfirmation = false;
+    this.itemIdToDelete = undefined;
+  }
+  ); 
+  }
   
   }
   // Method to navigate to the edit page for a specific ruleset

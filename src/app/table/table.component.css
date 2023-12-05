@@ -51,3 +51,34 @@ ngb-pagination {
   display: flex;
   justify-content: flex-end;
 }
+
+.confirmation-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 70px;
+  box-shadow: 40px 40px 40px rgba(0.6, 0.3, 0.4, 0.2);
+  margin: 20px;
+}
+
+.confirm p{
+  font-size: 30px;
+}
+
+.confirm button{
+  background-color: #7749f8;
+  color: white;
+  justify-content: center;
+  padding: 5px 6px;
+  gap: 15px;
+  border-radius: 6px;
+  margin: 20px;
+  margin-left: 90px;
+  margin-bottom: -60px;
+  font-size: 20px;
+}
