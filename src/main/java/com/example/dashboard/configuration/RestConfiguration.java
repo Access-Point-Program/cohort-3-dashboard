@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
 
+
 @Configuration
 public class RestConfiguration {
      // Creating a bean for WebClient, which is used for making HTTP requests.

@@ -88,7 +88,7 @@ export class RulesetsComponent implements OnInit{
   edit(rulesetId: number) {
     let URL: string;
     // Constructing the edit URL based on the rulesetId
-      URL = `http://localhost:9012/rulesets/${rulesetId}`;
+      URL = `http://localhost:9004/update-ruleset/${rulesetId}`;
     // Redirecting to the edit URL
     window.location.href = URL;
   }
