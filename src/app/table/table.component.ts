@@ -25,7 +25,9 @@ export class LayoutsTableComponent implements OnInit{
   page = 1;
   pageSize = 7;
   collectionSize = 9;
-  layoutsData?: LayoutData[];  
+  layoutsData?: LayoutData[];
+  showConfirmation: boolean = false;
+  itemIdToDelete: number | undefined;
 
     // Constructor with dependency injection for LayoutsService
   constructor(private layoutService: LayoutsService) {
@@ -47,12 +49,38 @@ export class LayoutsTableComponent implements OnInit{
     );
   }
 
-    // Method to delete a layout
-  delete(layout: number): void {
-    // Send a delete request to api
-  this.layoutService.deleteLayout(layout).subscribe((el) => this.getLayouts()); 
-  
+  confirmDelete(itemId: number): void {
+    this.itemIdToDelete = itemId;
+    this.showConfirmation = true;
   }
+
+  cancelDelete(): void {
+    this.showConfirmation = false;
+    this.itemIdToDelete = undefined;
+  }
+
+    // Method to delete a layout
+
+    delete(): void {
+      if (this.itemIdToDelete) {
+        // Send a delete request to api
+      this.layoutService.deleteLayout(this.itemIdToDelete).subscribe(() => {
+    
+        this.showConfirmation = false;
+        this.itemIdToDelete = undefined;
+        this.getLayouts();
+      },
+      (error) => {
+        console.error(error);
+    
+        this.showConfirmation = false;
+        this.itemIdToDelete = undefined;
+      }
+
+      ); 
+    }
+    
+    }
     // Method to edit a layout and navigate to its URL
   edit(layoutId: number) {
     let URL: string;

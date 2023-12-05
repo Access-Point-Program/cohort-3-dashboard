@@ -31,7 +31,7 @@
 			    <!-- Container for action buttons in each row -->
 			<div class="action-buttons">
 				        <!-- Button to delete the layout -->
-            	<td><button (click)="delete(layout.id)" class="Trash"></button>
+            	<td><button (click)="confirmDelete(layout.id)" class="Trash"></button>
 					    <!-- Button to edit the layout -->
 					<button (click)="edit(layout.id)" class="Pencil"></button>
 				</td>
@@ -39,6 +39,14 @@
 		</tr>
 	</tbody>
 </table>
+
+<div class="confirm" *ngIf="showConfirmation">
+	<div class="confirmation-box">
+		<p>Are you sure you want to delete?</p>
+		<button (click)="cancelDelete()">Cancel</button>
+		<button (click)="delete()">Delete</button>
+	</div>
+</div>
 
 <!-- Container for pagination with spacing and alignment -->
 <div class="d-flex justify-content-between p-2">
