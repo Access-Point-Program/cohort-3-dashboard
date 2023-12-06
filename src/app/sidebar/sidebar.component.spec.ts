@@ -31,3 +31,18 @@ describe('SidebarComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+describe('Sidebar Component', () => {
+  it('should change the active state', () => {
+    const sidebar = new SidebarComponent();
+    sidebar.active = 'd';
+    sidebar.change('r');
+    expect(sidebar.active).toEqual('r');
+  });
+
+  
+  it('should initialize with default active state', () => {
+    const sidebar = new SidebarComponent();
+    expect(sidebar.active).toEqual('d');
+  });
+});
