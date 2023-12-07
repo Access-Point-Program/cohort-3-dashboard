@@ -9,7 +9,7 @@ import { LayoutData } from './Layouts';
 })
 export class LayoutsService {
   // API endpoint for layouts
-  private url:string = 'http://localhost:9003/layouts'
+  private url:string = 'http://localhost:9030/layout'
     // HTTP options for setting content type
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -31,7 +31,7 @@ export class LayoutsService {
    private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-      console.error(error); 
+      console.error(error);
 
       console.log(`${operation} failed: ${error.message}`);
 

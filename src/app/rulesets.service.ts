@@ -9,7 +9,7 @@ import { RulesetData } from './Ruleset';
 })
 export class RulesetsService {
   // Define the API endpoint URL
-  private url:string = 'http://localhost:8080/rulesets';
+  private url:string = 'http://localhost:9030/ruleset';
     // Define HTTP options with headers for JSON content
 
   httpOptions = {
