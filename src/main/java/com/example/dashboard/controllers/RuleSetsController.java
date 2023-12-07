@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/ruleset")
+@RequestMapping(path="/api/ruleset")
 public class RuleSetsController {
     // Autowiring RuleSetsService to handle business logic related to rule sets.
     @Autowired
