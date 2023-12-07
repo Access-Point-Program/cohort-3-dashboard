@@ -19,6 +19,7 @@ public class LayoutService {
     @Autowired
     private WebClient webClient;
 
+    // .uri("http://localhost:9003/api/layouts/all")
     // Fetches all layouts from an external service.
     public List<Layout> getAllLayout() {
         return this.webClient.get()

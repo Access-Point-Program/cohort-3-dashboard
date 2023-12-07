@@ -13,9 +13,9 @@
 	<thead>
 		<tr>
 			      <!-- Table header columns -->
+
 			<th scope="col">#</th>
 			<th scope="col">Layout Name</th>
-			<th scope="col">Created By</th>
 			<th scope="col">Created On</th>
             <th scope="col">Actions</th>
 		</tr>
@@ -26,7 +26,6 @@
 			    <!-- Table data columns -->
 			<th scope="row">{{ layout.id }}</th>
 			<td>{{ layout.name }}</td>
-			<td>{{ layout.creator }}</td>
 			<td>{{ layout.creationDate | date:'medium' }}</td>
 			    <!-- Container for action buttons in each row -->
 			<div class="action-buttons">
