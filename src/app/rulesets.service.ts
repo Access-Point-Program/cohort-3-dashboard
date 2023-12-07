@@ -42,5 +42,4 @@ export class RulesetsService {
       return of(result as T);// Return an empty result to avoid breaking the application
     };
   }
-git
 }
