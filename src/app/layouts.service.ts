@@ -9,7 +9,7 @@ import { LayoutData } from './Layouts';
 })
 export class LayoutsService {
   // API endpoint for layouts
-  private url:string = 'http://localhost:9030/layout'
+  private url:string = '/api/layouts'
     // HTTP options for setting content type
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
