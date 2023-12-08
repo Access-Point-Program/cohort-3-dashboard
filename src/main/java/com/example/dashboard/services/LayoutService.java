@@ -19,7 +19,7 @@ public class LayoutService {
     // Fetches all layouts from an external service.
     public List<Layout> getAllLayout() {
         return this.webClient.get()
-                .uri("http://localhost:9003/layouts/")
+                .uri("http://localhost:9003/api/layouts/all")
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<List<Layout>>() {})
                 .block();
@@ -28,7 +28,7 @@ public class LayoutService {
     // Deletes a layout by its unique identifier.
     public void deleteLayout(Long id) {
         this.webClient.delete()
-                .uri("http://localhost:9003/layouts/{id}", id)
+                .uri("http://localhost:9003/api/layouts/delete/{id}", id)
                 .retrieve()
                 .toBodilessEntity()
                 .block();

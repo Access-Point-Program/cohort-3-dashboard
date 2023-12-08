@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/api/layout")
+@RequestMapping(path="/api/layouts")
 public class LayoutController {
 
      // Autowiring LayoutService to handle business logic related to layouts.
