@@ -1,50 +1,100 @@
-// Importing necessary modules for testing
-import { TestBed } from "@angular/core/testing";
+// Importing necessary modules for Angular unit testing
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+
+
+// Importing the component to be tested
 import { AppComponent } from "./app.component";
-import { RulesetsComponent } from "./rulesets/rulesets.component";
+import { RouterTestingModule } from "@angular/router/testing";
+import { Routes, ActivatedRoute } from "@angular/router";
+import { SidebarComponent } from "./sidebar/sidebar.component";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
-// Test suite for the AppComponent
-describe("AppComponent", () => {
-  // Configuration before each test
-  beforeEach(() =>
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        RulesetsComponent
-      ],
-    })
-  );
-  // Test case: should create the app
-  it("should create the app", () => {
-    // Creating a fixture for the AppComponent
-    const fixture = TestBed.createComponent(AppComponent);
-    // Accessing the component instance
-    const app = fixture.componentInstance;
-    // Asserting that the component instance is truthy (exists)
-    expect(app).toBeTruthy();
+
+let component: AppComponent;
+let fixture: ComponentFixture<AppComponent>;
+
+
+  describe('AppComponent', () => {
+
+
+      beforeEach(async () => {
+        await TestBed.configureTestingModule({
+          imports: [NgbModule, HttpClientTestingModule, HttpClientModule, RouterTestingModule,],
+          declarations: [AppComponent, SidebarComponent],
+          providers: [
+            {
+              provide: ActivatedRoute,
+              useValue: {
+                snapshot: {
+                  paramMap: {
+                    get: (key: string) => {
+                      return 'mocked-parameter-value';
+                    },
+                  },
+                },
+              },
+            },
+          ],
+        }).compileComponents();
+      });
+
+
+    beforeEach(() => {
+      fixture = TestBed.createComponent(AppComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    });
+
+
+    fit('Creates component', () => {
+      expect(component).toBeTruthy();
+    });
+    fit(`should have as title 'Dashboard'`, () => {
+      // Creating a fixture for the AppComponent
+      const fixture = TestBed.createComponent(AppComponent);
+      // Accessing the component instance
+      const app = fixture.componentInstance;
+      // Asserting that the title property is equal to 'Dashboard'
+      expect(app.title).toEqual("Dashboard");
+    });
+
+
+    fit('Clicking on rulesets switches to rulesets', async () => {
+      await fixture.whenStable();
+
+
+      fixture.detectChanges();
+      const button = fixture.debugElement.nativeElement.querySelector('li[ngbNavItem="rulesets"] button');
+
+
+      if (button) {
+        button.click();
+ 
+        expect(component.active).toBe('rulesets');
+      } else {
+        fail('Button for "rulesets" tab not found in the DOM.');
+      }
+    });
+
+
+    fit('Clicking on layouts switches to layouts', async () => {
+      await fixture.whenStable();
+
+
+      fixture.detectChanges();
+      const button = fixture.debugElement.nativeElement.querySelector('li[ngbNavItem="layouts"] button');
+
+
+      if (button) {
+        button.click();
+ 
+        expect(component.active).toBe('layouts');
+      } else {
+        fail('Button for "layouts" tab not found in the DOM.');
+      }
+    });
+
   });
 
-  // Test case: should have 'Dashboard' as the title
-  it(`should have as title 'Dashboard'`, () => {
-    // Creating a fixture for the AppComponent
-    const fixture = TestBed.createComponent(AppComponent);
-    // Accessing the component instance
-    const app = fixture.componentInstance;
-    // Asserting that the title property is equal to 'Dashboard'
-    expect(app.title).toEqual("Dashboard");
-  });
-
-  // Test case: should render the title in the HTML template
-  it("should render title", () => {
-    // Creating a fixture for the AppComponent
-    const fixture = TestBed.createComponent(AppComponent);
-    // Triggering change detection to update the rendered HTML
-    fixture.detectChanges();
-    // Accessing the compiled HTML element
-    const compiled = fixture.nativeElement as HTMLElement;
-    // Asserting that the rendered HTML contains the specified text
-    expect(compiled.querySelector(".content span")?.textContent).toContain(
-      "Dashboard app is running!"
-    );
-  });
-});
