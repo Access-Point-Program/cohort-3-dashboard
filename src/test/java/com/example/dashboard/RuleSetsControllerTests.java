@@ -1,6 +1,7 @@
 package com.example.dashboard;
 
 // Importing the RuleSet model class for testing.
+import com.example.dashboard.models.Layout;
 import com.example.dashboard.models.RuleSet;
 
 // Importing the RuleSetsService for testing business logic related to rule sets.
@@ -14,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
 
 // Importing classes related to mocking external services in testing.
+import io.restassured.http.ContentType;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 
@@ -74,8 +76,8 @@ public class RuleSetsControllerTests {
 		RestAssured.port = this.port;
 		// Creating a new instance of MockWebServer.
 		mockWebServer = new MockWebServer();
-		// 8080 is used because that is the port for the rules API
-		mockWebServer.start(8080);
+		// 9004 is used because that is the port for the rules API
+		mockWebServer.start(9004);
 	}
 
     // Shutting down the MockWebServer after each test.
@@ -85,16 +87,8 @@ public class RuleSetsControllerTests {
 	}
     // Test case to check if the GET request to /ruleset returns status code 200.
 	@Test
-	public void whenGetAllRuleSets_thenRespondWith200() {
-		given()
-			.when().get("/ruleset")
-			.then().statusCode(200);
-	}
-
-    // Test case to check if the GET request to /ruleset returns the expected rule set values.
-	@Test
-	public void whenGetAllRuleSetsIsCalled_thenItReturnsTheExpectedValues() throws JsonProcessingException {
-		// Creating mock RuleSet objects for testing.
+	public void whenGetAllRuleset_thenRespondWith200() throws JsonProcessingException {
+		// Creating mock Ruleset objects for testing.
 		RuleSet mock1 = new RuleSet();
 		mock1.id = 1L;
 		mock1.name = "Bilbo";
@@ -105,16 +99,42 @@ public class RuleSetsControllerTests {
 		mock2.name = "Carol";
 		mock2.creationDate = "10/25/3023";
 
-        // Enqueuing a mock response from the MockWebServer.
+		// Enqueuing a mock response from the MockWebServer.
 		mockWebServer.enqueue(new MockResponse()
 				.addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 				.setBody(new ObjectMapper().writeValueAsString(List.of(mock1, mock2)))
 		);
 
-        // Verifying that the response body matches the expected rule set values.
 		given()
-			.when().get("/ruleset")
-			.then()
+				.when().get("/api/ruleset")
+				.then().statusCode(200);
+	}
+
+
+    // Test case to check if the GET request to /ruleset returns the expected rule set values.
+	@Test
+	public void whenGetAllRulesetsIsCalled_thenItReturnsTheExpectedValues() throws JsonProcessingException {
+		// Creating mock Ruleset objects for testing.
+		RuleSet mock1 = new RuleSet();
+		mock1.id = 1L;
+		mock1.name = "Bilbo";
+		mock1.creationDate = "10/25/2023";
+
+		RuleSet mock2 = new RuleSet();
+		mock2.id = 2L;
+		mock2.name = "Carol";
+		mock2.creationDate = "10/25/3023";
+
+		// Enqueuing a mock response from the MockWebServer.
+		mockWebServer.enqueue(new MockResponse()
+				.addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+				.setBody(new ObjectMapper().writeValueAsString(List.of(mock1, mock2)))
+		);
+
+		// Verifying that the response body matches the expected layout values.
+		given()
+				.when().get("/api/ruleset")
+				.then()
 				.body("[0]", hasEntry("id", 1))
 				.body("[0]", hasEntry("name", "Bilbo"))
 				.body("[0]", hasEntry("creationDate", "10/25/2023"))
@@ -122,14 +142,53 @@ public class RuleSetsControllerTests {
 				.body("[1]", hasEntry("name", "Carol"))
 				.body("[1]", hasEntry("creationDate", "10/25/3023"));
 	}
-
 	@Test
 	public void whenDeleteRuleset_thenRespondWithNoContent(){
-		Long rulesetIdToDelete = 1L;
+		Long RulesetIdToDelete = 1L;
+
+		// Enqueuing a mock response from the MockWebServer.
+		mockWebServer.enqueue(new MockResponse()
+				.addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+				.setResponseCode(204)
+		);
+
 		given()
-				.pathParam("id", rulesetIdToDelete)
-				.when().delete("/ruleset/{id}")
+				.pathParam("id", RulesetIdToDelete)
+				.when().delete("/api/ruleset/{id}")
 				.then().statusCode(204);
+	}
+	@Test
+	public void testDeleteRuleset() {
+		// Specify the ID for the path parameter
+		long id = 999L;
+
+		// Enqueuing a mock response from the MockWebServer.
+		mockWebServer.enqueue(new MockResponse()
+				.addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+				.setResponseCode(404)
+		);
+
+		// Perform the DELETE request with the specified path parameter
+		RestAssured
+				.given()
+				.pathParam("id", id)
+				.when()
+				.delete("/api/ruleset/{id}")
+				.then()
+				.statusCode(404);
+	}
+	@Test
+	public void testBadRequest() {
+		// Invalid request body
+		String invalidRequestBody = "abc";
+
+		given()
+				.contentType(ContentType.JSON)
+				.body(invalidRequestBody)
+				.when()
+				.post("/api/ruleset")
+				.then()
+				.statusCode(404); // Check for a Bad Request status code
 	}
 
 
