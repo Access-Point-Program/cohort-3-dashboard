@@ -13,12 +13,12 @@ const proxy = {
     },    
   },
       // Endpoint for handling GET requests to '/rulesets'
-    'GET /rulesets': (_, res) => {
+    'GET /ruleset': (_, res) => {
           // Responds with the mockRulesets in JSON format
       res.json(mockRulesets)
     },
      // Endpoint for handling DELETE requests to '/rulesets/:id'
-    'DELETE /rulesets/:id': (req, res) => {
+    'DELETE /ruleset/:id': (req, res) => {
        // Filters out the ruleset with the specified id from the mockRulesets array
       mockRulesets = mockRulesets.filter(({id}) => id  != req.params.id)
        // Responds with a 204 No Content status, indicating successful deletion

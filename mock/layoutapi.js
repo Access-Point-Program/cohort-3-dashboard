@@ -13,13 +13,13 @@ const proxy = {
   },
 
   // Endpoint for handling GET requests to '/layouts'
-  'GET /layouts': (_, res) => {
+  'GET /api/layouts/all': (_, res) => {
     // Responds with the mockLayouts in JSON format
     res.json(mockLayouts);
   },
 
   // Endpoint for handling DELETE requests to '/layouts/:id'
-  'DELETE /layouts/:id': (req, res) => {
+  'DELETE /api/layouts/delete/:id': (req, res) => {
     // Filters out the layout with the specified id from the mockLayouts array
     mockLayouts = mockLayouts.filter(({ id }) => id != req.params.id);
 
