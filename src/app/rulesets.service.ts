@@ -9,7 +9,7 @@ import { RulesetData } from './Ruleset';
 })
 export class RulesetsService {
   // Define the API endpoint URL
-  private url:string = '/api/rulesets';
+  private url:string = '/api/ruleset';
     // Define HTTP options with headers for JSON content
 
   httpOptions = {
