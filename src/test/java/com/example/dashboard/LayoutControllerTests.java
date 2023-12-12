@@ -14,6 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
 
 // Importing classes related to mocking external services in testing.
+import io.restassured.http.ContentType;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 
@@ -72,8 +73,8 @@ public class LayoutControllerTests {
 		RestAssured.baseURI = "http://localhost";
 		RestAssured.port = this.port;
 		mockWebServer = new MockWebServer();
-		// 8080 is used because that is the port for the rules API
-		mockWebServer.start(8080);
+		// 9003 is used because that is the port for the rules API
+		mockWebServer.start(9003);
 	}
 
     // Shutting down the MockWebServer after each test.
@@ -82,11 +83,29 @@ public class LayoutControllerTests {
 		mockWebServer.shutdown();
 	}
 
+
     // Test case to check if the GET request to /layout returns status code 200.
 	@Test
-	public void whenGetAllLayout_thenRespondWith200() {
+	public void whenGetAllLayout_thenRespondWith200() throws JsonProcessingException {
+		// Creating mock Layout objects for testing.
+		Layout mock1 = new Layout();
+		mock1.id = 1L;
+		mock1.name = "Bilbo";
+		mock1.creationDate = "10/25/2023";
+
+		Layout mock2 = new Layout();
+		mock2.id = 2L;
+		mock2.name = "Carol";
+		mock2.creationDate = "10/25/3023";
+
+		// Enqueuing a mock response from the MockWebServer.
+		mockWebServer.enqueue(new MockResponse()
+				.addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+				.setBody(new ObjectMapper().writeValueAsString(List.of(mock1, mock2)))
+		);
+
 		given()
-			.when().get("/layout")
+			.when().get("/api/layouts")
 			.then().statusCode(200);
 	}
 
@@ -112,7 +131,7 @@ public class LayoutControllerTests {
 
         // Verifying that the response body matches the expected layout values.
 		given()
-			.when().get("/layout")
+			.when().get("/api/layouts")
 			.then()
 				.body("[0]", hasEntry("id", 1))
 				.body("[0]", hasEntry("name", "Bilbo"))
@@ -127,10 +146,52 @@ public class LayoutControllerTests {
 	public void whenDeleteLayout_thenRespondWithNoContent(){
 		Long layoutIdToDelete = 1L;
 
+		// Enqueuing a mock response from the MockWebServer.
+		mockWebServer.enqueue(new MockResponse()
+				.addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+				.setResponseCode(204)
+		);
+
 		given()
 				.pathParam("id", layoutIdToDelete)
-				.when().delete("/layout/{id}")
+				.when().delete("/api/layouts/{id}")
 				.then().statusCode(204);
+	}
+	@Test
+	public void testDeleteLayout() {
+		// Specify the ID for the path parameter
+		long id = 999L;
+
+		// Enqueuing a mock response from the MockWebServer.
+		mockWebServer.enqueue(new MockResponse()
+				.addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+				.setResponseCode(404)
+		);
+
+		// Perform the DELETE request with the specified path parameter
+		RestAssured
+				.given()
+				.pathParam("id", id)
+				.when()
+				.delete("/api/layouts/{id}")
+				.then()
+				.statusCode(404);
+	}
+	@Test
+	public void testBadRequest() {
+		// Invalid request body
+		String invalidRequestBody = "abc";
+
+		given()
+				.contentType(ContentType.JSON)
+				.body(invalidRequestBody)
+				.when()
+				.post("/api/layouts")
+				.then()
+				.statusCode(404); // Check for a Bad Request status code
 	}
 
 }
+
+
+
