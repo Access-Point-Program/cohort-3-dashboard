@@ -1,5 +1,6 @@
 package com.example.dashboard.services;
 
+import com.example.dashboard.configuration.AccessPointProperties;
 import com.example.dashboard.models.RuleSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -18,10 +19,14 @@ public class RuleSetsService {
     @Autowired
     private WebClient webClient;
 
+    @Autowired
+    private AccessPointProperties accessPointProperties;
+
     // Fetches all rule sets from an external service.
     public List<RuleSet> getAllRuleSets() {
+        String apiUrl = accessPointProperties.getRulesApiUrl();
         return this.webClient.get()
-                .uri("http://localhost:9004/ruleset")
+                .uri(apiUrl + "/ruleset")
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<List<RuleSet>>() {})
                 .block();
@@ -29,8 +34,9 @@ public class RuleSetsService {
 
     // Deletes a rule set by its unique identifier.
     public void deleteRuleSet(Long id) {
+        String apiUrl = accessPointProperties.getRulesApiUrl();
            this.webClient.delete()
-                   .uri("http://localhost:9004/ruleset/{id}", id)
+                   .uri(apiUrl + "/ruleset/{id}", id)
                    .retrieve()
                    .toBodilessEntity()
                    .block();

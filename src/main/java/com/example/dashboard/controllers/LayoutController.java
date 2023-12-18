@@ -1,5 +1,6 @@
 package com.example.dashboard.controllers;
 
+import com.example.dashboard.configuration.AccessPointProperties;
 import com.example.dashboard.models.Layout;
 import com.example.dashboard.services.LayoutService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,13 @@ public class LayoutController {
     @Autowired
     LayoutService LayoutService;
 
+    @Autowired
+    AccessPointProperties accessPointProperties;
+
     // Handling HTTP GET request to retrieve all layouts.
     @GetMapping
     public ResponseEntity<List<Layout>> getAllLayouts() {
+        accessPointProperties.getLayoutsApiUrl();
         // Returning a ResponseEntity with the list of layouts and HTTP status OK.
         return ResponseEntity.ok()
                 .body(this.LayoutService.getAllLayout());
@@ -27,6 +32,8 @@ public class LayoutController {
     // Handling HTTP DELETE request to delete a layout by ID.
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteLayout(@PathVariable Long id) {
+
+        accessPointProperties.getLayoutsApiUrl();
         // Deleting the layout using LayoutService.
         this.LayoutService.deleteLayout(id);
         // Returning a ResponseEntity with no content and HTTP status NO_CONTENT.
