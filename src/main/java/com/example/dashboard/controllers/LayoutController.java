@@ -27,8 +27,6 @@ public class LayoutController {
     // Handling HTTP DELETE request to delete a layout by ID.
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteLayout(@PathVariable Long id) {
-
-        accessPointProperties.getLayoutsApiUrl();
         // Deleting the layout using LayoutService.
         this.LayoutService.deleteLayout(id);
         // Returning a ResponseEntity with no content and HTTP status NO_CONTENT.
