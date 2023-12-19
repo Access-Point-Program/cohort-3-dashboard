@@ -18,7 +18,6 @@ public class RuleSetsController {
     // Handling HTTP GET request to retrieve all rule sets.
     @GetMapping
     public ResponseEntity<List<RuleSet>> getAllRuleSets() {
-        accessPointProperties.getRulesApiUrl();
         // Returning a ResponseEntity with the list of rule sets and HTTP status OK.
         return ResponseEntity.ok()
                 .body(this.ruleSetsService.getAllRuleSets());
