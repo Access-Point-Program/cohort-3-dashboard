@@ -19,7 +19,6 @@ public class LayoutController {
     // Handling HTTP GET request to retrieve all layouts.
     @GetMapping
     public ResponseEntity<List<Layout>> getAllLayouts() {
-        accessPointProperties.getLayoutsApiUrl();
         // Returning a ResponseEntity with the list of layouts and HTTP status OK.
         return ResponseEntity.ok()
                 .body(this.LayoutService.getAllLayout());
