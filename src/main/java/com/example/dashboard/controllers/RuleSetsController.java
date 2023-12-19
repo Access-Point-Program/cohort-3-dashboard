@@ -11,9 +11,6 @@ import java.util.List;
 @RestController
 @RequestMapping(path="/api/ruleset")
 public class RuleSetsController {
-    @Autowired
-    AccessPointProperties accessPointProperties;
-
     // Autowiring RuleSetsService to handle business logic related to rule sets.
     @Autowired
     RuleSetsService ruleSetsService;
