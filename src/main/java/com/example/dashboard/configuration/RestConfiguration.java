@@ -13,7 +13,4 @@ public class RestConfiguration {
         // Creating and returning a new instance of WebClient.
         return WebClient.create();
     }
-
-
-
 }
