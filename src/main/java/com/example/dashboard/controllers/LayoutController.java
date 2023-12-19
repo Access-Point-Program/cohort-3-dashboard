@@ -1,6 +1,5 @@
 package com.example.dashboard.controllers;
 
-import com.example.dashboard.configuration.AccessPointProperties;
 import com.example.dashboard.models.Layout;
 import com.example.dashboard.services.LayoutService;
 import org.springframework.beans.factory.annotation.Autowired;
