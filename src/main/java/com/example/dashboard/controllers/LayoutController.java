@@ -16,9 +16,6 @@ public class LayoutController {
     @Autowired
     LayoutService LayoutService;
 
-    @Autowired
-    AccessPointProperties accessPointProperties;
-
     // Handling HTTP GET request to retrieve all layouts.
     @GetMapping
     public ResponseEntity<List<Layout>> getAllLayouts() {
