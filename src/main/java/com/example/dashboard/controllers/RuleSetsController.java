@@ -26,7 +26,6 @@ public class RuleSetsController {
     // Handling HTTP DELETE request to delete a rule set by ID.
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteRuleSet(@PathVariable Long id) {
-        accessPointProperties.getRulesApiUrl();
         // Deleting the rule set using RuleSetsService.
         this.ruleSetsService.deleteRuleSet(id);
         // Returning a ResponseEntity with no content and HTTP status NO_CONTENT.
