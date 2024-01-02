@@ -9,5 +9,6 @@ public class RuleSet {
     // Name of the rule set.
     public String name;
     // Creation date of the rule set.
+    @JsonProperty("creation_date")
     public String creationDate;
 }

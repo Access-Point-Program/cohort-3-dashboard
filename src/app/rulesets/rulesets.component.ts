@@ -97,7 +97,7 @@ export class RulesetsComponent implements OnInit{
   getRulesets(){
     this.rulesetService.getRulesets().subscribe((data) => {
        // Updating the rulesets array with the retrieved data
-      this.rulesets = data; 
+      this.rulesets = data;
       // Refreshing the displayed rulesets and updating the collectionSize for pagination
       this.refreshRulesets(); 
       this.collectionSize = this.rulesets.length});
