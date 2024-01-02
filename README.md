@@ -12,6 +12,7 @@ This application will be the landing page after the user has logged into the app
 - Frankie Renwick
 - Nicholas Alexander
 - Nicholas Jansen
+- Noah Naucke
 - Tyesha White
 - Demetrios Dubis
 
